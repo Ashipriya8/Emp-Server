@@ -3,6 +3,7 @@ const cors = require('cors');
 var morgan = require('morgan');
 
 const app = express();
+const port = 3000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -16,6 +17,6 @@ var addEmp = require('./api/routes/addemp');
 app.use('/', home);
 app.use('/api/addemp', addEmp);
 
-var server = app.listen(3000, () => {
-    console.log('Server is listening on port', server.address().port)
+app.listen(port, () => {
+    console.log('Server is listening on port', +port)
 })
